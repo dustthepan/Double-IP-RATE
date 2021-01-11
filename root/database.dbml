@@ -119,7 +119,4 @@ Table countries {
   country_name varchar
 }
 
-Ref: users.id > reviews.user_id
-Ref: users.id < occassions.user_id
-Ref: users.id < reaction.user_id
- Ref: users.id > keywords.user_id
+

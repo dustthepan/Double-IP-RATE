@@ -1,0 +1,125 @@
+Table users {
+  id integer [primary key, increment]
+  username text [unique]
+  user_thumbnail text [unique]
+  email text [unique]
+  password varchar [unique]
+  birthday date [unique]
+  city varchar 
+  country varchar
+  beer_sommelier boolean [not null, unique]
+  facebook_id text [not null, unique]
+  google_id text [not null,unique]
+  created_at date
+  updated_at date
+ }
+
+Table beer {
+  id integer [primary key, increment]
+  beer_type integer [not null, unique]
+  name varchar [not null, unique]
+  type varchar [not null, unique]
+  manufacturer_id varchar [not null, unique]
+  rating_id integer [unique]
+  bottle_thumbnail text [unique]
+  
+}
+
+Table manufacturer {
+    id integer [primary key, increment]
+    name varchar [not null, unique]
+    city_id integer [not null, unique]
+    country_id integer [not null, unique]
+}
+
+Table beer_sommelier {
+    id integer [primary key, increment]
+    name varchar [not null, unique]
+    certification integer [not null, unique]
+    publication varchar [not null, unique]
+}
+
+
+Table rating {
+  id integer [primary key, increment]
+  user_id integer [not null, unique]
+  beer_id integer [not null, unique]
+  beer_sommelier_id int [not null, unique]
+  review_id integer [not null, unique]
+  reaction_id integer [not null, unique]
+  malt decimal 
+  yeast decimal
+  hops decimal
+  aromatic decimal
+  pairing varchar // this could potentially become a new update to the app later
+  lighting datetime
+  season date // change to month in schema
+}
+
+
+Table reviews {
+  id integer [primary key , increment]
+  user_id integer [not null, unique]
+  beer_id integer [not null, unique]
+  reaction_id integer [not null,unique] 
+  beer_sommelier_id integer [not null, unique]
+  user_review text [unique]
+  created_at datetime
+  review_duration integer
+  friend_add_id integer [not null, unique]
+  tag_id integer [not null, unique]
+  share_id integer [not null, unique]
+  share_time datetime
+ }
+
+ Table reaction {
+   id integer [primary key, increment]
+   user_id integer [not null, unique]
+   beer_sommelier_id[not null, unique]
+   beer_id integer [not null, unique]
+   reaction_thumbnail text [not null, unique] 
+}
+
+Table tags {
+  id integer [primary key]
+  user_id integer [not null, unique]
+  beer_sommelier_id integer [not null,unique]
+  beer_id integer [not null, unique]
+  manufacturer_id integer [not null, unique]
+}
+
+
+Table platform {
+  id integer [primary key]
+  platform_type varchar [not null, unique]
+
+}
+
+
+Table shares {
+  id integer [primary key, increment]
+  user_id integer [not null, unique]
+  share_id integer [not null, unique]
+  platform_id integer [not null,unique]
+  review_id integer [not null, unique]
+  created_at datetime
+} 
+
+
+Table cities {
+  id integer [primary key]
+  name varchar
+  country_id integer
+
+}
+
+Table countries {
+  id integer [primary key]
+  country_code varchar
+  country_name varchar
+}
+
+Ref: users.id > reviews.user_id
+Ref: users.id < occassions.user_id
+Ref: users.id < reaction.user_id
+ Ref: users.id > keywords.user_id

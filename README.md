@@ -1,2 +1,3 @@
 # Double-IP-RATE
-Schema Mapping written in DBML 
+
+Schema Mapping written in DBML

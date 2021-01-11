@@ -1,5 +1,5 @@
 {
     "terminal.integrated.splitCwd": "workspaceRoot",
-    "terminal.integrated.detectLocale": "on",
+    "terminal.integrated.detectLocale": "off",
     "terminal.integrated.enableBell": true
 }

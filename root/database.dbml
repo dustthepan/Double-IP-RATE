@@ -80,7 +80,7 @@ Table reviews {
  Table reaction {
    id integer [primary key, increment]
    user_id integer [not null, unique]
-   beer_sommelier_id[not null, unique]
+   beer_sommelier_id integer [not null, unique]
    beer_id integer [not null, unique]
    reaction_thumbnail text [not null, unique] 
 }

@@ -124,11 +124,7 @@ Table countries {
   country_name varchar
 }
 
-Enum post_status {
-draft
-published
-private [note: 'visible via URL only']
-}
+
 
 Ref: reviews.user_id > users.id
 

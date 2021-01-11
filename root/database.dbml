@@ -4,54 +4,54 @@ Note: 'Beer Review Social Media mock'
 }
 
 Table users {
-  id integer [primary key, increment]
-  username text [unique]
-  user_thumbnail text [unique]
-  email text [unique]
-  password varchar [unique]
-  birthday date [unique]
+  id integer [primary key]
+  username varchar
+  user_thumbnail text 
+  email text 
+  password varchar 
+  birthday date 
   city varchar 
   country varchar
-  beer_sommelier boolean [not null, unique]
-  facebook_id text [not null, unique]
-  google_id text [not null,unique]
+  beer_sommelier boolean 
+  facebook_id text 
+  google_id text 
   created_at date
   updated_at date
  }
 
 Table beer {
-  id integer [primary key, increment]
-  beer_type integer [not null, unique]
-  name varchar [not null, unique]
-  type varchar [not null, unique]
-  manufacturer_id varchar [not null, unique]
-  rating_id integer [unique]
-  bottle_thumbnail text [unique]
+  id integer [primary key]
+  beer_type integer 
+  name varchar 
+  type varchar 
+  manufacturer_id varchar 
+  rating_id integer 
+  bottle_thumbnail text [note: 'graphic of ale']
   
 }
 
 Table manufacturer {
-    id integer [primary key, increment]
-    name varchar [not null, unique]
-    city_id integer [not null, unique]
-    country_id integer [not null, unique]
+    id integer [primary key]
+    name varchar 
+    city_id integer 
+    country_id integer 
 }
 
 Table beer_sommelier {
-    id integer [primary key, increment]
-    name varchar [not null, unique]
-    certification integer [not null, unique]
-    publication varchar [not null, unique]
+    id integer [primary key]
+    name varchar 
+    certification integer 
+    publication varchar 
 }
 
 
 Table rating {
-  id integer [primary key, increment]
-  user_id integer [not null, unique]
-  beer_id integer [not null, unique]
-  beer_sommelier_id int [not null, unique]
-  review_id integer [not null, unique]
-  reaction_id integer [not null, unique]
+  id integer [primary key]
+  user_id integer 
+  beer_id integer 
+  beer_sommelier_id integer
+  review_id integer 
+  reaction_id integer 
   malt decimal 
   yeast decimal
   hops decimal
@@ -63,50 +63,48 @@ Table rating {
 
 
 Table reviews {
-  id integer [primary key , increment]
-  user_id integer [not null, unique]
-  beer_id integer [not null, unique]
-  reaction_id integer [not null,unique] 
-  beer_sommelier_id integer [not null, unique]
-  user_review text [unique]
+  id integer [primary key]
+  user_id integer 
+  beer_id integer 
+  reaction_id integer
+  beer_sommelier_id integer 
   created_at datetime
   review_duration integer
-  friend_add_id integer [not null, unique]
-  tag_id integer [not null, unique]
-  share_id integer [not null, unique]
+  friend_add_id integer 
+  tag_id integer 
+  share_id integer 
   share_time datetime
  }
 
  Table reaction {
-   id integer [primary key, increment]
-   user_id integer [not null, unique]
-   beer_sommelier_id integer [not null, unique]
-   beer_id integer [not null, unique]
-   reaction_thumbnail text [not null, unique] 
+   id integer [primary key]
+   user_id integer 
+   beer_sommelier_id integer 
+   beer_id integer 
+   reaction_thumbnail text [note: 'clip of reaction'] 
 }
 
 Table tags {
   id integer [primary key]
-  user_id integer [not null, unique]
-  beer_sommelier_id integer [not null,unique]
-  beer_id integer [not null, unique]
-  manufacturer_id integer [not null, unique]
+  user_id integer 
+  beer_sommelier_id integer 
+  beer_id integer 
+  manufacturer_id integer 
 }
 
 
 Table platform {
   id integer [primary key]
-  platform_type varchar [not null, unique]
-
+  platform_type varchar 
 }
 
 
 Table shares {
-  id integer [primary key, increment]
-  user_id integer [not null, unique]
-  share_id integer [not null, unique]
-  platform_id integer [not null,unique]
-  review_id integer [not null, unique]
+  id integer [primary key]
+  user_id integer 
+  share_id integer 
+  platform_id integer 
+  review_id integer 
   created_at datetime
 } 
 

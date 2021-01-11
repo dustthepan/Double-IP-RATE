@@ -1,4 +1,4 @@
-Project Double-IP-RATE {
+Project double_iprate {
 database_type: 'PostgreSQL'
 Note: 'Beer Review Social Media mock'
 }

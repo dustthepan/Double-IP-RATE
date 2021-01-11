@@ -1,3 +1,8 @@
+Project Double-IP-RATE {
+database_type: 'PostgreSQL'
+Note: 'Beer Review Social Media mock'
+}
+
 Table users {
   id integer [primary key, increment]
   username text [unique]
